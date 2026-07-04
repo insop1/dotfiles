@@ -16,4 +16,6 @@ ya pkg add yazi-rs/plugins:full-border
 ya pkg add yazi-rs/plugins:mount
 ya pkg add matt-dong-123/gruvbox-material
 ya pkg add ndtoan96/ouch
+ya pkg add uhs-robert/recycle-bin
+ya pkg add yazi-rs/plugins:chmod
 ```
