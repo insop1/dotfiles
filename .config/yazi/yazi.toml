@@ -19,12 +19,25 @@ reveal = [
 vlc = [
   { run = 'vlc "$@"', orphan = true, desc = "VLC" },
 ]
+run_script = [
+  { run = "$@", block = true, desc = "Run script"}
+]
 
 [open]
 prepend_rules = [
+  { url = "*.sh", use = [ "neovim", "vscode", "run_script"] },
   { mime = "text/*", use = [ "neovim", "vscode" ] },
   { url = "*.rpm", use = [ "rpm_install" ] },
   { mime = "video/*", use = "vlc" },
   { mime = "audio/*", use = "vlc" },
 ]
 
+[[plugin.prepend_fetchers]]
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url   = "*/"
+run   = "git"
+group = "git"

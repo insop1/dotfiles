@@ -1,6 +1,6 @@
 # Dotfiles
 
-Fedora 44 + Hyprland.
+Arch Linux + Hyprland.
 
 ## Important
 

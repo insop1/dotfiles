@@ -19,17 +19,17 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "",
-    mode     = "2560x1440@180",
-    position = "auto",
-    scale    = "1.333333",
+  output   = "",
+  mode     = "2560x1440@180",
+  position = "auto",
+  scale    = "1.333333",
 })
 
 -- unscale XWayland
 hl.config({
-    xwayland = {
-        force_zero_scaling = true
-    }
+  xwayland = {
+    force_zero_scaling = true
+  }
 })
 ---------------------
 ---- MY PROGRAMS ----
@@ -42,6 +42,11 @@ local menu        = "fuzzel"
 local taskBar = "waybar"
 local wallpaper = "awww-daemon"
 local notifier = "mako"
+local locker = "hyprlock"
+local editor = "nvim"
+
+local path = os.getenv("PATH") or ""
+local home = os.getenv("HOME")
 
 -------------------
 ---- AUTOSTART ----
@@ -53,13 +58,12 @@ local notifier = "mako"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function ()
-    hl.exec_cmd(taskBar)
-    hl.exec_cmd(wallpaper)
-    hl.exec_cmd(notifier)
-    hl.exec_cmd("sh -c '/home/arshiro/.config/hypr/scripts/restore-gtk.sh'")
-    hl.exec_cmd("/usr/libexec/xdg-desktop-portal-hyprland")
-    hl.exec_cmd("/usr/libexec/xdg-desktop-portal")
-    hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  hl.exec_cmd(taskBar)
+  hl.exec_cmd(wallpaper)
+  hl.exec_cmd(notifier)
+  hl.exec_cmd("/usr/libexec/xdg-desktop-portal-hyprland")
+  hl.exec_cmd("/usr/libexec/xdg-desktop-portal")
+  hl.exec_cmd("systemctl --user start hyprpolkitagent")
 end)
 
 -------------------------------
@@ -78,7 +82,12 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
-
+hl.env("PATH", home .. "/.cargo/bin:" .. path)
+hl.env("EDITOR", editor)
+hl.env("VISUAL", editor)
+hl.env("XDG_DATA_DIRS",
+  "/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:"
+  .. os.getenv("HOME") .. "/.local/share/flatpak/exports/share")
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
@@ -105,56 +114,56 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 
 hl.config({
-    general = {
-        gaps_in  = 5,
-        gaps_out = 15,
+  general = {
+    gaps_in  = 5,
+    gaps_out = 15,
 
-        border_size = 2,
+    border_size = 2,
 
-        col = {
-            active_border   = { colors = {"rgba(c2c0b8ff)"}, angle = 45 },
-            inactive_border = "rgba(4a4d58ff)",
-        },
-
-        -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
-
-        -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-        allow_tearing = false,
-
-        layout = "dwindle",
+    col = {
+      active_border   = { colors = {"rgba(c2c0b8ff)"}, angle = 45 },
+      inactive_border = "rgba(4a4d58ff)",
     },
 
-    decoration = {
-        rounding       = 10,
-        rounding_power = 2,
+    -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = false,
 
-        -- Change transparency of focused and unfocused windows
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+    -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
+    allow_tearing = false,
 
-        shadow = {
-            enabled      = true,
-            range        = 4,
-            render_power = 3,
-            color        = 0xee1a1a1a,
-        },
+    layout = "dwindle",
+  },
 
-        blur = {
-            enabled   = true,
-            size      = 3,
-            passes    = 1,
-            vibrancy  = 0.1696,
-        },
+  decoration = {
+    rounding       = 10,
+    rounding_power = 2,
+
+    -- Change transparency of focused and unfocused windows
+    active_opacity   = 1.0,
+    inactive_opacity = 1.0,
+
+    shadow = {
+      enabled      = true,
+      range        = 4,
+      render_power = 3,
+      color        = 0xee1a1a1a,
     },
 
-    animations = {
-        enabled = true,
+    blur = {
+      enabled   = true,
+      size      = 3,
+      passes    = 1,
+      vibrancy  = 0.1696,
     },
+  },
 
-    cursor = {
-        no_hardware_cursors = false
-    },
+  animations = {
+    enabled = true,
+  },
+
+  cursor = {
+    no_hardware_cursors = false
+  },
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -205,23 +214,23 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
-    dwindle = {
-        preserve_split = true, -- You probably want this
-    },
+  dwindle = {
+    preserve_split = true, -- You probably want this
+  },
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
-    master = {
-        new_status = "master",
-    },
+  master = {
+    new_status = "master",
+  },
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
-    scrolling = {
-        fullscreen_on_one_column = true,
-    },
+  scrolling = {
+    fullscreen_on_one_column = true,
+  },
 })
 
 ----------------
@@ -229,10 +238,10 @@ hl.config({
 ----------------
 
 hl.config({
-    misc = {
-        force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
-    },
+  misc = {
+    force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
+  },
 })
 
 ---------------
@@ -240,36 +249,36 @@ hl.config({
 ---------------
 
 hl.config({
-    input = {
-        kb_layout  = "us",
-        kb_variant = "",
-        kb_model   = "",
-        kb_options = "",
-        kb_rules   = "",
+  input = {
+    kb_layout  = "us",
+    kb_variant = "",
+    kb_model   = "",
+    kb_options = "",
+    kb_rules   = "",
 
-        follow_mouse = 1,
+    follow_mouse = 1,
 
-        force_no_accel = true,
-        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
-        accel_profile = "flat",
+    force_no_accel = true,
+    sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+    accel_profile = "flat",
 
-        touchpad = {
-            natural_scroll = false,
-        },
+    touchpad = {
+      natural_scroll = false,
     },
+  },
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
+  fingers = 3,
+  direction = "horizontal",
+  action = "workspace"
 })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-    name        = "epic-mouse-v1",
-    sensitivity = -0.5,
+  name        = "epic-mouse-v1",
+  sensitivity = -0.5,
 })
 
 ---------------------
@@ -289,7 +298,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + up", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("maximize", "toggle"))
-
+hl.bind(mainMod .. " + BACKSPACE", hl.dsp.exec_cmd(locker))
 
 -- Restarting Waybar
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
@@ -305,13 +314,13 @@ hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 
 
-    
-    
+
+
 
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+  local key = i % 10 -- 10 maps to key 0
+  hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+  hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
@@ -354,27 +363,27 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 -- Example window rules that are useful
 
 local suppressMaximizeRule = hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
-    name  = "suppress-maximize-events",
-    match = { class = ".*" },
+  -- Ignore maximize requests from all apps. You'll probably like this.
+  name  = "suppress-maximize-events",
+  match = { class = ".*" },
 
-    suppress_event = "maximize",
+  suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-    -- Fix some dragging issues with XWayland
-    name  = "fix-xwayland-drags",
-    match = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
+  -- Fix some dragging issues with XWayland
+  name  = "fix-xwayland-drags",
+  match = {
+    class      = "^$",
+    title      = "^$",
+    xwayland   = true,
+    float      = true,
+    fullscreen = false,
+    pin        = false,
+  },
 
-    no_focus = true,
+  no_focus = true,
 })
 
 -- Layer rules also return a handle.
@@ -387,9 +396,28 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
+  name  = "move-hyprland-run",
+  match = { class = "hyprland-run" },
 
-    move  = "20 monitor_h-120",
-    float = true,
+  move  = "20 monitor_h-120",
+  float = true,
 })
+
+-- custom window rules
+local DEFAULT_SIZE = {900, 560}
+local popups = {
+  { name = "popup-pulseaudio", class = "org.pulseaudio.pavucontrol" },
+  { name = "popup-blueman", class = "blueman-manager" },
+  { name = "popup-nmtui", class = "nmtui-popup"}
+}
+
+for _, app in ipairs(popups) do
+  hl.window_rule({
+    name = app.name,
+    match = { class = app.class },
+
+    float = true,
+    center = true,
+    size = app.size or DEFAULT_SIZE,
+  })
+end

@@ -18,7 +18,6 @@
     "network",
     "bluetooth",
     "wireplumber",
-    "battery",
     "clock"
   ],
 
@@ -49,7 +48,7 @@
     "tooltip-format": "{essid}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}",
     "tooltip-format-ethernet": "{ifname}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}", 
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "kitty -e nmtui"
+    "on-click": "kitty --class nmtui-popup -e nmtui"
   },
   "mpris": {
     "player": "spotify",
@@ -80,7 +79,7 @@
   },
   "clock": {
     "format": "{:%H:%M}",
-    "format-alt": "{:%m/%d/%y %H:%M}",
+    "format-alt": "{:%m/%d/%y}",
     "tooltip-format": "{:%a, %b %d %Y}"
   },
   "bluetooth": {

@@ -1,4 +1,5 @@
 [mgr]
 prepend_keymap = [
-	{ on = "T", run = "shell 'kitty' --orphan --confirm", desc = "Open terminal here" },
+	{ on = "T", run = "shell --orphan --confirm kitty", desc = "Open terminal here" },
+  { on = "M", run = "plugin mount", desc = "View mounts"},
 ]
