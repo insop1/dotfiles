@@ -1,0 +1,25 @@
+
+
+[mgr]
+show_hidden = true
+
+
+[opener]
+neovim = [
+  { run = 'nvim "$@"', block = true, desc = "Neovim" },
+]
+vscode = [
+  { run = 'code "$@"', orphan = true, desc = "VSCode" },
+]
+rpm_install = [
+  { run = 'sudo dnf install "$@"', block = true, desc = "Install with dnf" }
+]
+reveal = [
+  { run = 'dolphin --select "$@"', orphan = true, desc = "Reveal in Dolphin" },
+]
+
+[open]
+prepend_rules = [
+  { mime = "text/*", use = [ "neovim", "vscode" ] },
+  { url = "*.rpm", use = [ "rpm_install" ] },
+]
