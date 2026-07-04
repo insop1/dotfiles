@@ -1,5 +1,14 @@
-[mgr]
-prepend_keymap = [
-	{ on = "T", run = "shell --orphan --confirm kitty", desc = "Open terminal here" },
-  { on = "M", run = "plugin mount", desc = "View mounts"},
-]
+[[mgr.prepend_keymap]]
+on = "T"
+run = "shell --orphan --confirm kitty"
+desc = "Open terminal here"
+
+[[mgr.prepend_keymap]]
+on = "M"
+run = "plugin mount"
+desc = "View mounts"
+
+[[mgr.prepend_keymap]]
+on = "C"
+run = "plugin ouch"
+desc = "Compress with ouch"
