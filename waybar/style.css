@@ -18,3 +18,7 @@ window#waybar {
   background: rgba(122, 158, 150, 0.15);
   border-radius: 4px; 
 }
+
+#workspaces button {
+  padding: 0 6px
+}
