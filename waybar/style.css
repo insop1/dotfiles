@@ -1,20 +1,20 @@
 * {
-    font-family: "JetBrainsMono Nerd Font Propo";
-    font-size: 14px;
-    color: #d6d6d0;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 14px;
+  color: #d6d6d0;
 }
 
 window#waybar {
-    background-color: #2b2f3a;
-    border-bottom: 2px solid #6b6e78;
+  background-color: #2b2f3a;
+  border-bottom: 2px solid #6b6e78;
 }
 
 .modules-left, .modules-right {
-    padding-left: 10px;
-    padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #workspaces button.active {
-    background: rgba(122, 158, 150, 0.15);
-    border-radius: 4px; 
+  background: rgba(122, 158, 150, 0.15);
+  border-radius: 4px; 
 }

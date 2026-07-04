@@ -1,95 +1,103 @@
 {
-    "layer": "top",
-    "height": 34,
-    "spacing": 10,
-    "margin-left": 0,
-    "margin-right": 0,
-    "modules-left": [
-        "hyprland/workspaces", 
-        // "mpris"
-        "custom/insop-media"
-    ],
-    "modules-center": [
-        "hyprland/window"
-    ],
-    "modules-right": [
-        "tray",
-        "network",
-        "wireplumber",
-        "bluetooth",
-        "clock"
-    ],
-    
-    "tray": {
-        "icon-size": 16,
-        "spacing": 10  
-    },
-    "wireplumber": {
-        "format": "<span letter_spacing='6000'>{icon}</span>{volume}%",
-        "format-icons": ["󰕿", "󰖀", "󰕾"],
-        "format-muted": "󰝟",
-        "on-click": "pavucontrol",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
-        "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
-    },
-    // "wlr/taskbar": {
-    //     "icon-size": 18,
-    //     "ignore-list": [
-    //         "Alacritty"
-    //     ]
-    // },
-    "network": {
-        "interval": 5,
-        "format-wifi": "{icon}",
-        "format-ethernet": "󰈀",
-        "format-disconnected": "󰤮",
-        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "tooltip-format": "{essid}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}",
-        "tooltip-format-disconnected": "Disconnected",
-        "on-click": "kitty -e nmtui"
-    },
-    "mpris": {
-        "player": "spotify",
-        "format": "󰏤 {dynamic}",
-        "format-paused": "󰐊 <i>{dynamic}</i>",
-        "tooltip-format": "{artist}\n{title}\n{album}",
-        "max-length": 40,
-        "on-click": "playerctl --player=spotify,spotatui play-paxuse",
-        "on-click-right": "playerctl --player=spotify,spotatui next",
-        "on-click-middle": "playerctl --player=spotify,spotatui previous",
-        "dynamic-order": ["artist", "title"]
-    },
-    "custom/insop-media": {
-        "exec": "insop-media run",
-        "format": "{}",
-        "max-length": 40,
-        "tooltip": true,
-        "escape": false,
-        "return-type": "json",
-        "on-click": "insop-media toggle",
-        "on-click-right": "insop-media next",
-        "on-click-middle": "insop-media previous"
-    },
-    "hyprland/window": {
-        "format": "{title}",
-        "separate-outputs": true,
-        "max-length": 30
-    },
-    "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%m/%d/%y %H:%M}",
-        "tooltip-format": "{:%a, %b %d %Y}"
-    },
-    "bluetooth": {
-        "format": "󰂯",
-        "format-disabled": "󰂲",
-        "format-connected": "󰂱",
-        "tooltip-format-connected": "Connections: {num_connections}\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "- {device_alias}",
-        "on-click": "blueman-manager"
-    },
-    "hyprland/workspaces": {
-        "on-click": "activate"
-    }
+  "layer": "top",
+  "height": 34,
+  "spacing": 10,
+  "margin-left": 0,
+  "margin-right": 0,
+  "modules-left": [
+    "hyprland/workspaces", 
+    // "mpris"
+    "custom/insop-media"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "tray",
+    "network",
+    "bluetooth",
+    "wireplumber",
+    "battery",
+    "clock"
+  ],
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10  
+  },
+  "wireplumber": {
+    "format": "<span letter_spacing='6000'>{icon}</span>{volume}%",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format-muted": "󰝟",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+  // "wlr/taskbar": {
+  //     "icon-size": 18,
+  //     "ignore-list": [
+  //         "Alacritty"
+  //     ]
+  // },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": "{essid}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}",
+    "tooltip-format-ethernet": "{ifname}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}", 
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty -e nmtui"
+  },
+  "mpris": {
+    "player": "spotify",
+    "format": "󰏤 {dynamic}",
+    "format-paused": "󰐊 <i>{dynamic}</i>",
+    "tooltip-format": "{artist}\n{title}\n{album}",
+    "max-length": 40,
+    "on-click": "playerctl --player=spotify,spotatui play-pause",
+    "on-click-right": "playerctl --player=spotify,spotatui next",
+    "on-click-middle": "playerctl --player=spotify,spotatui previous",
+    "dynamic-order": ["artist", "title"]
+  },
+  "custom/insop-media": {
+    "exec": "insop-media run",
+    "format": "{}",
+    "max-length": 40,
+    "tooltip": true,
+    "escape": false,
+    "return-type": "json",
+    "on-click": "insop-media toggle",
+    "on-click-right": "insop-media next",
+    "on-click-middle": "insop-media previous"
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "separate-outputs": true,
+    "max-length": 30
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%m/%d/%y %H:%M}",
+    "tooltip-format": "{:%a, %b %d %Y}"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format-connected": "Connections: {num_connections}\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "- {device_alias}",
+    "on-click": "blueman-manager"
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate"
+  },
+  "battery": {
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-plugged": "󰂄",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{capacity}% — {time}"
+  }
 }

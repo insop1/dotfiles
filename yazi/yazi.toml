@@ -17,9 +17,15 @@ rpm_install = [
 reveal = [
   { run = 'dolphin --select "$@"', orphan = true, desc = "Reveal in Dolphin" },
 ]
+vlc = [
+  { run = 'vlc "$@"', orphan = true, desc = "VLC" },
+]
 
 [open]
 prepend_rules = [
   { mime = "text/*", use = [ "neovim", "vscode" ] },
   { url = "*.rpm", use = [ "rpm_install" ] },
+  { mime = "video/*", use = "vlc" },
+  { mime = "audio/*", use = "vlc" },
 ]
+
