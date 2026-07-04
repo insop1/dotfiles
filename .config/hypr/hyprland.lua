@@ -403,12 +403,15 @@ hl.window_rule({
   float = true,
 })
 
--- custom window rules
-local DEFAULT_SIZE = {900, 560}
+-- Window Rules for popups
+local LANDSCAPE = {900, 560}
+local PORTRAIT = {600, 820}
 local popups = {
-  { name = "popup-pulseaudio", class = "org.pulseaudio.pavucontrol" },
-  { name = "popup-blueman", class = "blueman-manager" },
-  { name = "popup-nmtui", class = "nmtui-popup"}
+  { name = "pavucontrol-popup", class = "org.pulseaudio.pavucontrol" },
+  { name = "blueman-popup", class = "blueman-manager" },
+  { name = "nmtui-popup", class = "nmtui-popup", size = PORTRAIT },
+  { name = "wlctl-popup", class = "wlctl-popup", size = PORTRAIT },
+  { name = "bluetui-popup", class = "bluetui-popup", size = PORTRAIT  },
 }
 
 for _, app in ipairs(popups) do
@@ -418,8 +421,7 @@ for _, app in ipairs(popups) do
 
     float = true,
     center = true,
-    size = app.size or DEFAULT_SIZE,
+    size = app.size or LANDSCAPE,
   })
 end
-
 

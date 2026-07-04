@@ -4,7 +4,7 @@ Arch Linux + Hyprland.
 
 ## Insop-Media
 
-The waybar config uses [insop-media](https://github.com/Insop1/insop-media), you can either remove the custom module or install the module.
+The waybar config uses [insop-media](https://github.com/insoppu/insop-media), you can either remove the custom module or install the module.
 
 ## Yazi Plugins/Flavors
 

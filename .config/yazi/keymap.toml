@@ -9,6 +9,11 @@ run = "plugin mount"
 desc = "View mounts"
 
 [[mgr.prepend_keymap]]
-on = "C"
+on = ["C"]
 run = "plugin ouch"
 desc = "Compress with ouch"
+
+[[mgr.prepend_keymap]]
+on = ["R"]
+run = "plugin recycle-bin"
+desc = "Open recycle-bin menu"
