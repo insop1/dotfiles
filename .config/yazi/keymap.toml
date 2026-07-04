@@ -17,3 +17,8 @@ desc = "Compress with ouch"
 on = ["R"]
 run = "plugin recycle-bin"
 desc = "Open recycle-bin menu"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = "plugin chmod"
+desc = "Chmod on selected files"
