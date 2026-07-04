@@ -1,8 +1,8 @@
-# dotfiles
+# Dotfiles
 
 Fedora 44 + Hyprland.
 
-# important
+# Important
 
 The waybar config uses [insop-media](https://github.com/Insop1/insop-media), you can either remove the custom module or build it.
 
