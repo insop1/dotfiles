@@ -3,7 +3,6 @@
 [mgr]
 show_hidden = true
 
-
 [opener]
 neovim = [
   { run = 'nvim "$@"', block = true, desc = "Neovim" },
