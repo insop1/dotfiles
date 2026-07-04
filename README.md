@@ -1,6 +1,6 @@
-# Dotfiles
+# Dotfiles (Laptop)
 
-Arch Linux + Hyprland.
+Fedora 44 + Hyprland.
 
 ## Insop-Media
 
