@@ -21,6 +21,9 @@ Warm amber: -- Main
 Dusk plum:
 #8a6b85
 
+Dusty Red:
+#c25b5b
+
 ---Font possible colors---
 Warm Font:
 #d6d6d0
