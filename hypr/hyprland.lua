@@ -37,7 +37,7 @@ hl.config({
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "kitty yazi"
 local menu        = "fuzzel"
 local taskBar = "waybar"
 local wallpaper = "hyprpaper"
@@ -56,7 +56,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd(taskBar)
     hl.exec_cmd(wallpaper)
     hl.exec_cmd(notifier)
-    hl.exec_cmd("/home/arshiro/.config/hypr/scripts/restore-gtk.sh")
+    hl.exec_cmd("sh -c '/home/arshiro/.config/hypr/scripts/restore-gtk.sh'")
     hl.exec_cmd("/usr/libexec/xdg-desktop-portal-hyprland")
     hl.exec_cmd("/usr/libexec/xdg-desktop-portal")
 end)
@@ -102,6 +102,7 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 -----------------------
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
+
 hl.config({
     general = {
         gaps_in  = 5,
@@ -285,20 +286,27 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("maximized", "toggle"))
+hl.bind(mainMod .. " + up", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen("maximize", "toggle"))
+
 
 -- Restarting Waybar
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
 
+-- hjkl
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
+
+
+    
+    
+
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))

@@ -1,0 +1,35 @@
+
+
+
+
+return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          explorer = {
+            hidden = true,
+            ignored = true,
+          },
+        },
+      },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "default",
+        ["<CR>"] = {},  -- unbind enter from accepting
+        ["<Tab>"] = { "select_and_accept", "fallback" },  -- use tab to accept instead
+      },
+    },
+  },
+}
