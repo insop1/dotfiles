@@ -10,11 +10,8 @@ neovim = [
 vscode = [
   { run = 'code "$@"', orphan = true, desc = "VSCode" },
 ]
-rpm_install = [
-  { run = 'sudo dnf install "$@"', block = true, desc = "Install with dnf" }
-]
 reveal = [
-  { run = 'dolphin --select "$@"', orphan = true, desc = "Reveal in Dolphin" },
+  { run = 'thunar "$(dirname "$@")"', orphan = true, desc = "Reveal in Thunar" },
 ]
 vlc = [
   { run = 'vlc "$@"', orphan = true, desc = "VLC" },
@@ -22,12 +19,15 @@ vlc = [
 run_script = [
   { run = "$@", block = true, desc = "Run script"}
 ]
+umu = [
+  { run = "kitty umu-run $@", orpgan = true, desc = "umu-run"}
+]
 
 [open]
 prepend_rules = [
   { url = "*.sh", use = [ "neovim", "vscode", "run_script"] },
+  { url = "*.exe", use = [ "umu" ]},
   { mime = "text/*", use = [ "neovim", "vscode" ] },
-  { url = "*.rpm", use = [ "rpm_install" ] },
   { mime = "video/*", use = "vlc" },
   { mime = "audio/*", use = "vlc" },
 ]

@@ -304,7 +304,7 @@ hl.bind(mainMod .. " + BACKSPACE", hl.dsp.exec_cmd(locker))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
 
 -- hjkl
--- Move focus with mainMod + arrow keys
+-- Move focus
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
@@ -313,8 +313,11 @@ hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 
-
-
+-- obs
+local obs = {
+   window = "class:com.obsproject.Studio"
+}
+hl.bind(mainMod .. " + PAUSE", hl.dsp.pass(obs))
 
 
 for i = 1, 10 do
