@@ -61,17 +61,15 @@
         "dynamic-order": ["artist", "title"]
     },
     "custom/insop-media": {
-        "exec": "~/.config/waybar/scripts/insop-media/target/debug/insop-media run",
+        "exec": "insop-media run",
         "format": "{}",
         "max-length": 40,
         "tooltip": true,
         "escape": false,
         "return-type": "json",
-        "on-click": "~/.config/waybar/scripts/insop-media/target/debug/insop-media toggle",
-        "on-click-right": "~/.config/waybar/scripts/insop-media/target/debug/insop-media next",
-        "on-click-middle": "~/.config/waybar/scripts/insop-media/target/debug/insop-media previous",
-        "on-scroll-up": "~/.config/waybar/scripts/insop-media/target/debug/insop-media volume 0.05+",
-        "on-scroll-down": "~/.config/waybar/scripts/insop-media/target/debug/insop-media volume 0.05-"
+        "on-click": "insop-media toggle",
+        "on-click-right": "insop-media next",
+        "on-click-middle": "insop-media previous",
     },
     "hyprland/window": {
         "format": "{title}",
