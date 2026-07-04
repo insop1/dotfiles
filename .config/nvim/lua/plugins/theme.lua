@@ -2,7 +2,6 @@
 
 
 return {
-  { "EdenEast/nightfox.nvim" },
   { "sainnhe/gruvbox-material" },
 
   {
