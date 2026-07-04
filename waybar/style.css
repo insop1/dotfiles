@@ -7,6 +7,7 @@
 window#waybar {
   background-color: #2b2f3a;
   border-radius: 8px;
+  border: 2px solid #4a4d58;
 }
 
 .modules-left, .modules-right {
@@ -15,7 +16,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: rgba(122, 158, 150, 0.15);
+  background: rgba(194, 192, 184, 0.10);
   border-radius: 4px; 
 }
 
