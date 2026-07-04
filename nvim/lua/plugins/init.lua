@@ -30,6 +30,9 @@ return {
         ["<CR>"] = {},  -- unbind enter from accepting
         ["<Tab>"] = { "select_and_accept", "fallback" },  -- use tab to accept instead
       },
+      completion = {
+        ghost_text = { enabled = false },
+      },
     },
   },
 }
