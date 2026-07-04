@@ -48,7 +48,7 @@
     "tooltip-format": "{essid}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}",
     "tooltip-format-ethernet": "{ifname}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}", 
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "kitty --class nmtui-popup -e nmtui"
+    "on-click": "kitty --class wlctl-popup wlctl"
   },
   "mpris": {
     "player": "spotify",
@@ -88,7 +88,7 @@
     "format-connected": "󰂱",
     "tooltip-format-connected": "Connections: {num_connections}\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "- {device_alias}",
-    "on-click": "blueman-manager"
+    "on-click": "kitty --class bluetui-popup bluetui"
   },
   "hyprland/workspaces": {
     "on-click": "activate"

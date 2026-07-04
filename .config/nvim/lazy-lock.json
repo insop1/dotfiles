@@ -27,6 +27,7 @@
   "nvim-lint": { "branch": "master", "commit": "d48f3a76189d03b2239f6df1b2f7e3fa8353743b" },
   "nvim-lspconfig": { "branch": "master", "commit": "229b79051b380377664edc4cbd534930154921a1" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
+  "nvim-treesitter-endwise": { "branch": "master", "commit": "8fe8a95630f4f2c72a87ba1927af649e0bfaa244" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e" },
   "nvim-ts-autotag": { "branch": "main", "commit": "88c1453db4ba7dd24131086fe51fdf74e587d275" },
   "omnisharp-extended-lsp.nvim": { "branch": "main", "commit": "51e407a46ddb15e49727139b5b1ae3650cd6a069" },
