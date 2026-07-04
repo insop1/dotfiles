@@ -1,0 +1,29 @@
+﻿-- Base --
+Twilight Slate:
+#2b2f3a
+
+In between:
+#4a4d58
+
+Fog Gray:
+#6b6e78
+
+Pale Mist:
+#c2c0b8
+
+--Additional Accents--
+Sage teal: -- Main
+#7a9e96
+
+Warm amber: -- Main
+#d1a36a
+
+Dusk plum:
+#8a6b85
+
+---Font possible colors---
+Warm Font:
+#d6d6d0
+
+Cool Font (not main):
+#d5d7de
