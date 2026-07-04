@@ -40,7 +40,7 @@ local terminal    = "kitty"
 local fileManager = "kitty yazi"
 local menu        = "fuzzel"
 local taskBar = "waybar"
-local wallpaper = "hyprpaper"
+local wallpaper = "awww-daemon"
 local notifier = "mako"
 
 -------------------
