@@ -20,9 +20,9 @@ run_script = [
   { run = "$@", block = true, desc = "Run script"}
 ]
 umu = [
-  { run = "kitty umu-run $@", orpgan = true, desc = "umu-run"}
+  { run = "kitty umu-run $@", orphan = true, desc = "umu-run"}
 ]
-
+  
 [open]
 prepend_rules = [
   { url = "*.sh", use = [ "neovim", "vscode", "run_script"] },
