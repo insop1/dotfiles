@@ -176,7 +176,7 @@ hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
 hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, spring = "easy" })
 hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  spring = "easy",         style = "popin 87%" })
-hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "linear",       style = "popin 87%" })
+hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "almostLinear",       style = "popin 87%" })
 hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
 hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
@@ -188,6 +188,9 @@ hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "
 hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, spring = "easy" })
 hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.94, spring = "easy" })
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, spring = "easy" })
+hl.animation({ leaf = "specialWorkspace", enabled = true,  speed = 1.94, spring = "easy" })
+hl.animation({ leaf = "specialWorkspaceIn", enabled = true,  speed = 1.94, spring = "easy", style = "slidefade top 20%" })
+hl.animation({ leaf = "specialWorkspaceOut", enabled = true,  speed = 1.49, bezier = "almostLinear", style = "slidefade bottom 20%" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
