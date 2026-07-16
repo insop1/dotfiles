@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-  background-color: #2b2f3a;
+  background-color: rgba(40, 40, 40, 0.99);
   border-radius: 8px;
-  border: 2px solid #4a4d58;
+  border: 2px solid #45403d;
 }
 
 .modules-left, .modules-right {
@@ -16,7 +16,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: rgba(194, 192, 184, 0.10);
+  background: rgba(212, 190, 152, 0.10);
   border-radius: 4px; 
 }
 
@@ -26,6 +26,7 @@ window#waybar {
 }
 
 tooltip {
-  background: #2b2f3a;
-  border: 2px solid #4a4d58;
+  background: #282828;
+  border: 2px solid #45403d;
 }
+

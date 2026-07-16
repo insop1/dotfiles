@@ -86,8 +86,12 @@ hl.env("PATH", home .. "/.cargo/bin:" .. path)
 hl.env("EDITOR", editor)
 hl.env("VISUAL", editor)
 hl.env("XDG_DATA_DIRS",
-  "/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:"
-  .. os.getenv("HOME") .. "/.local/share/flatpak/exports/share")
+  "/usr/local/share:/usr/share:"
+  .. "/var/lib/flatpak/exports/share:"
+  .. home .. "/.local/share/flatpak/exports/share:"
+)
+
+
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
@@ -121,8 +125,8 @@ hl.config({
     border_size = 2,
 
     col = {
-      active_border   = { colors = {"rgba(c2c0b8ff)"}, angle = 45 },
-      inactive_border = "rgba(4a4d58ff)",
+      active_border   = { colors = {"rgba(d4be98ff)"} },
+      inactive_border = "rgba(45403dff)",
     },
 
     -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -174,7 +178,7 @@ hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
 
 -- Default springs
-hl.curve("easy",           { type = "spring", mass = 1, stiffness = 500, dampening = 41 })
+hl.curve("easy",           { type = "spring", mass = 1, stiffness = 75, dampening = 20 })
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })

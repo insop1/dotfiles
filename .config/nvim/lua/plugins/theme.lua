@@ -2,9 +2,9 @@
 
 
 return {
-  { "EdenEast/nightfox.nvim" },
+  { "sainnhe/gruvbox-material" },
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "nightfox" },
+    opts = { colorscheme = "gruvbox-material" },
   },
 }
