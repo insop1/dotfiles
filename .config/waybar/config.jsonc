@@ -86,11 +86,12 @@
   },
   "bluetooth": {
     "format": "󰂯",
-    "format-disabled": "󰂲",
+    "format-off": "󰂲",
     "format-connected": "󰂱",
     "tooltip-format-connected": "Connections: {num_connections}\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "- {device_alias}",
-    "on-click": "kitty --class bluetui-popup bluetui"
+    "on-click": "kitty --class bluetui-popup bluetui",
+    "on-click-right": "bt-toggle.sh"
   },
   "hyprland/workspaces": {
     "on-click": "activate"

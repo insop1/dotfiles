@@ -83,7 +83,11 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
-hl.env("PATH", home .. "/.cargo/bin:" .. path)
+hl.env("PATH",
+  home .. "/.local/bin:"
+  .. home .. "/.cargo/bin:"
+  .. path
+)
 hl.env("EDITOR", editor)
 hl.env("VISUAL", editor)
 hl.env("XDG_DATA_DIRS",
