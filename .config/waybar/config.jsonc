@@ -70,7 +70,9 @@
     "return-type": "json",
     "on-click": "insop-media toggle",
     "on-click-right": "insop-media next",
-    "on-click-middle": "insop-media previous"
+    "on-click-middle": "insop-media previous",
+    "on-scroll-up": "insop-media volume 0.05+",
+    "on-scroll-down": "insop-media volume 0.050-"
   },
   "hyprland/window": {
     "format": "{title}",

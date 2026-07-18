@@ -64,6 +64,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("/usr/libexec/xdg-desktop-portal-hyprland")
   hl.exec_cmd("/usr/libexec/xdg-desktop-portal")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  hl.exec_cmd("easyeffects --gapplication-service")
 end)
 
 -------------------------------
