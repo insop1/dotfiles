@@ -1,5 +1,3 @@
-
-
 [mgr]
 show_hidden = true
 
@@ -17,16 +15,20 @@ vlc = [
   { run = 'vlc "$@"', orphan = true, desc = "VLC" },
 ]
 run_script = [
-  { run = "$@", block = true, desc = "Run script"}
+  { run = "$@", block = true, desc = "Run script" }
 ]
 umu = [
-  { run = "kitty umu-run $@", orpgan = true, desc = "umu-run"}
+  { run = "kitty umu-run $@", orphan = true, desc = "umu-run" }
+]
+extract_with_ouch = [
+  { run = 'ouch decompress "$@"', block = false, desc = "Extract here (ouch)" }
 ]
 
 [open]
 prepend_rules = [
   { url = "*.sh", use = [ "neovim", "vscode", "run_script"] },
-  { url = "*.exe", use = [ "umu" ]},
+  { url = "*.exe", use = [ "umu" ] },
+  { url = "*.{zip,tar,tar.gz,tgz,tar.xz,txz,7z,rar,bz2,gz}", use = [ "extract_with_ouch", "reveal" ] },
   { mime = "text/*", use = [ "neovim", "vscode" ] },
   { mime = "video/*", use = "vlc" },
   { mime = "audio/*", use = "vlc" },
