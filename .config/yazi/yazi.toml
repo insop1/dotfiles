@@ -17,6 +17,9 @@ vlc = [
 run_script = [
   { run = "$@", block = true, desc = "Run script" }
 ]
+execute = [
+  { run = "$@", orphan = true, desc = "Execute" }
+]
 umu = [
   { run = "kitty umu-run $@", orphan = true, desc = "umu-run" }
 ]
@@ -28,7 +31,8 @@ extract_with_ouch = [
 prepend_rules = [
   { url = "*.sh", use = [ "neovim", "vscode", "run_script"] },
   { url = "*.exe", use = [ "umu" ] },
-  { url = "*.{zip,tar,tar.gz,tgz,tar.xz,txz,7z,rar,bz2,gz}", use = [ "extract_with_ouch", "reveal" ] },
+  { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", use = [ "extract_with_ouch", "reveal" ] },
+  { mime = "application/{executable,pie-executable}", use = [ "execute", "reveal" ]},
   { mime = "text/*", use = [ "neovim", "vscode" ] },
   { mime = "video/*", use = "vlc" },
   { mime = "audio/*", use = "vlc" },
