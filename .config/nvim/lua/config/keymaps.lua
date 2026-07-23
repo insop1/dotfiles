@@ -8,4 +8,4 @@ end, { desc = "Open terminal" })
 
 vim.keymap.set({ "n", "v" }, "c", '"_c')
 vim.keymap.set({ "n", "v" }, "C", '"_C')
-
+vim.keymap.set({'n', 'i', 'v'}, '<C-z>', '<Nop>')
