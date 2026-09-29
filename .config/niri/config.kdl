@@ -40,6 +40,7 @@ input {
         // accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
+        middle-emulation
     }
 
     mouse {
@@ -278,7 +279,7 @@ spawn-at-startup "awww-daemon"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -365,6 +366,23 @@ window-rule {
     open-floating true
     default-column-width { fixed 600; }
     default-window-height { fixed 820; }
+}
+
+window-rule { 
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=0 y=0 relative-to="bottom-right"
+    open-focused false
+}
+
+environment {
+    QT_QPA_PLATFORMTHEME "kde"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+gestures {
+    hot-corners {
+        off
+    }
 }
 
 binds {
