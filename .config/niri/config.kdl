@@ -367,6 +367,23 @@ window-rule {
     default-window-height { fixed 820; }
 }
 
+window-rule { 
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=0 y=0 relative-to="bottom-right"
+    open-focused false
+}
+
+environment {
+    QT_QPA_PLATFORMTHEME "kde"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 binds {
     // Added keys of my own.
     Mod+Shift+B { spawn "/home/arshiro/.config/waybar/launch.sh"; }
