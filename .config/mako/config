@@ -14,3 +14,6 @@ height=200
 [urgency=critical]
 border-color=#ea6962
 default-timeout=0
+
+[app-name="System Notifications" summary~="USB Device.*"]
+invisible=1

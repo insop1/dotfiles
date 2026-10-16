@@ -11,9 +11,8 @@
 
 require("tablets")
 require("windows")
-require("animations")
-require("keybinds")
 require("monitors")
+require("global_keybinds")
 local settings = require("settings")
 
 ---------------------
@@ -41,8 +40,8 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd(notifier)
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
   hl.exec_cmd("easyeffects --gapplication-service")
-  hl.exec_cmd("wl-paste --type text --watch cliphist store -max-items 100")
-  hl.exec_cmd("wl-paste --type image --watch cliphist store -max-items 100")
+  hl.exec_cmd("wl-paste --type text --watch cliphist -max-items 100 store")
+  hl.exec_cmd("wl-paste --type image --watch cliphist -max-items 100 store")
 end)
 
 -------------------------------
@@ -51,7 +50,7 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("hyprcursor_size", "24")
+hl.env("HYPRCURSOR_SIZE", "24")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -77,10 +76,9 @@ hl.env("hyprcursor_size", "24")
 -----------------------
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
-
 hl.config({
   general = {
-    gaps_in  = 5,
+    gaps_in  = 8,
     gaps_out = 15,
 
     border_size = 2,
@@ -95,7 +93,11 @@ hl.config({
 
     -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
     allow_tearing = true,
-    layout = "dwindle",
+    layout = "scrolling",
+  },
+
+  binds = {
+    scroll_event_delay = 0,
   },
 
   decoration = {
@@ -110,7 +112,7 @@ hl.config({
       enabled      = true,
       range        = 4,
       render_power = 3,
-      color        = 0xee1a1a1a,
+      color        = "0xee1a1a1a",
     },
 
     blur = {
@@ -126,7 +128,8 @@ hl.config({
   },
 
   cursor = {
-    no_hardware_cursors = false
+    no_hardware_cursors = false,
+    no_warps = true,
   },
 })
 
@@ -165,7 +168,9 @@ hl.config({
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
   scrolling = {
-    fullscreen_on_one_column = true,
+    fullscreen_on_one_column = false,
+    explicit_column_widths = "0.333, 0.5, 0.667",
+    follow_focus = true,
   },
 })
 
@@ -177,6 +182,7 @@ hl.config({
   misc = {
     force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
     disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
+    focus_on_activate = true,
   },
 })
 
@@ -192,11 +198,12 @@ hl.config({
     kb_options = "",
     kb_rules   = "",
 
-    follow_mouse = 1,
-
     force_no_accel = true,
     sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
     accel_profile = "flat",
+
+    follow_mouse = 0,
+    float_switch_override_focus = 0,
 
     touchpad = {
       natural_scroll = false,
@@ -210,59 +217,11 @@ hl.gesture({
   action = "workspace"
 })
 
--- Example per-device config
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
-hl.device({
-  name        = "epic-mouse-v1",
-  sensitivity = -0.5,
-})
-
---------------------------------
----- WINDOWS AND WORKSPACES ----
---------------------------------
-
--- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
-
--- Example window rules that are useful
-
-local suppressMaximizeRule = hl.window_rule({
-  -- Ignore maximize requests from all apps. You'll probably like this.
-  name  = "suppress-maximize-events",
-  match = { class = ".*" },
-
-  suppress_event = "maximize",
-})
--- suppressMaximizeRule:set_enabled(false)
-
-hl.window_rule({
-  -- Fix some dragging issues with XWayland
-  name  = "fix-xwayland-drags",
-  match = {
-    class      = "^$",
-    title      = "^$",
-    xwayland   = true,
-    float      = true,
-    fullscreen = false,
-    pin        = false,
-  },
-
-  no_focus = true,
-})
-
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
-
--- Hyprland-run windowrule
-hl.window_rule({
-  name  = "move-hyprland-run",
-  match = { class = "hyprland-run" },
-
-  move  = "20 monitor_h-120",
-  float = true,
-})
+-- Layouts specific
+local layouts = {
+  dwindle = "dwindle_layout",
+  scrolling = "scrolling",
+}
+local current_layout = hl.get_config("general.layout")
+local l = layouts[current_layout] or layouts.dwindle
+require(l)

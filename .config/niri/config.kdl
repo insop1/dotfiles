@@ -272,6 +272,9 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "awww-daemon"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist -max-items 100 store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist -max-items 100 store"
+spawn-at-startup "udiskie"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -367,6 +370,7 @@ window-rule {
     default-window-height { fixed 820; }
 }
 
+// My own opinions
 window-rule { 
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=0 y=0 relative-to="bottom-right"
@@ -376,6 +380,10 @@ window-rule {
 environment {
     QT_QPA_PLATFORMTHEME "kde"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+window-rule {
+    open-maximized-to-edges false
 }
 
 gestures {
